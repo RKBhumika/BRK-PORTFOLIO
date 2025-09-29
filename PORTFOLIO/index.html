@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BHUMIKA.R.K | Developer Portfolio</title>
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- INLINE CSS (Previously style.css) -->
+    <style>
+        /* -------------------------------------- */
+        /* Global Styles & Reset */
+        /* -------------------------------------- */
+        :root {
+            --color-primary: #A7C7E7;    /* Pastel Blue (Main Accent) */
+            --color-secondary: #CDEAC0;  /* Pastel Green (Skills: Programming) */
+            --color-tertiary: #FDEBD3;   /* Soft Peach (Skills: Frameworks & Education: Academic) */
+            --color-quaternary: #E7D0E7; /* Soft Lavender (Skills: Soft & Education: Certifications) */
+            --color-quinary: #FFF5CC;    /* Soft Creamy Yellow (Unused/Extra Pastel) */
+            --color-text-dark: #343A40;
+            --color-text-light: #6C757D;
+            --color-background: #FDFDF6; /* NEW: Soft Ivory Pastel Background */
+            --color-white: #FFFFFF;
+            --color-light-gray: #E9ECEF;
+            --color-link-hover: #8CAFC9; /* Darker Primary */
+            --color-card-border: #D1D9E6; /* Light border color */
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-background); /* Applied new pastel background */
+            color: var(--color-text-dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* -------------------------------------- */
+        /* Navigation Bar */
+        /* -------------------------------------- */
+        nav {
+            background-color: var(--color-white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.5em;
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-text-dark);
+            margin-left: 25px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        /* -------------------------------------- */
+        /* Section & Typography */
+        /* -------------------------------------- */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--color-light-gray);
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2em;
+            color: var(--color-text-dark);
+            display: block;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--color-secondary);
+            border-radius: 2px;
+        }
+
+        /* -------------------------------------- */
+        /* Hero Section */
+        /* -------------------------------------- */
+        #hero {
+            text-align: center;
+            padding: 100px 20px;
+            /* Using a gradient that starts with the new background color */
+            background: linear-gradient(160deg, var(--color-background) 0%, var(--color-light-gray) 100%);
+        }
+
+        #hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 5px;
+            color: var(--color-text-dark);
+        }
+
+        #hero h2 {
+            font-size: 1.5em;
+            color: var(--color-primary);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        #hero h2::after {
+            display: none;
+        }
+
+        .profile-img-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-img-placeholder {
+            width: 160px;
+            height: 160px;
+            background-color: var(--color-secondary); 
+            border-radius: 50%;
+            border: 6px solid var(--color-primary); 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary);
+            font-size: 4em;
+            overflow: hidden; 
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img-placeholder:hover {
+            transform: scale(1.05);
+        }
+
+        /* Styles for the actual image if provided */
+        .profile-img-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        /* CTA Buttons */
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+        }
+
+        .cta-button.primary {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .cta-button.primary:hover {
+            background-color: var(--color-link-hover);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+        }
+
+        .cta-button.secondary {
+            background-color: var(--color-secondary);
+            color: var(--color-text-dark);
+            border-color: var(--color-primary);
+        }
+
+        .cta-button.secondary:hover {
+            background-color: #B4D7AA;
+            color: var(--color-text-dark);
+        }
+
+        /* -------------------------------------- */
+        /* About Section */
+        /* -------------------------------------- */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            color: var(--color-text-dark);
+        }
+        
+        /* -------------------------------------- */
+        /* Skills & Projects Grid */
+        /* -------------------------------------- */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background-color: var(--color-white);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 5px solid var(--color-primary); /* Default border color */
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: var(--color-text-dark);
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--color-light-gray);
+            margin-bottom: 15px;
+        }
+
+        /* Distinct colors for skill cards to add variety */
+        .skill-card-lang {
+            border-top: 5px solid var(--color-secondary); /* Pastel Green */
+        }
+        .skill-card-frameworks {
+            border-top: 5px solid var(--color-tertiary); /* Soft Peach */
+        }
+        .skill-card-soft {
+            border-top: 5px solid var(--color-quaternary); /* Soft Lavender */
+        }
+        
+        /* Education Card - Academic using Tertiary color (Soft Peach) */
+        .education-card-academic {
+            border-top: 5px solid var(--color-tertiary); 
+        }
+        
+        /* Education Card - Certifications using Quaternary color (Soft Lavender) */
+        .certification-card {
+            border-top: 5px solid var(--color-quaternary);
+        }
+
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-list li {
+            background-color: var(--color-light-gray);
+            color: var(--color-text-light);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .skill-list li:hover {
+            background-color: #dee2e6;
+        }
+
+        .project-card h3 {
+            color: var(--color-primary);
+        }
+
+        .project-card .tech-stack {
+            font-size: 0.9em;
+            color: var(--color-text-light);
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: var(--color-link-hover);
+        }
+
+        .project-link i {
+            margin-right: 5px;
+        }
+
+        /* -------------------------------------- */
+        /* Contact Section NEW STYLES */
+        /* -------------------------------------- */
+
+        #contact .contact-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            background-color: var(--color-white);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            overflow: hidden;
+            border: 1px solid var(--color-card-border);
+        }
+
+        #contact .contact-intro {
+            flex: 1;
+            padding: 40px;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+
+        #contact .contact-intro h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            border-bottom: none;
+        }
+        
+        #contact .contact-intro p {
+            font-size: 1.1em;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+
+        #contact .contact-details {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-link-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: var(--color-text-dark);
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        .contact-link-item:hover {
+            color: var(--color-primary);
+        }
+
+        .contact-link-item i {
+            font-size: 1.5em;
+            margin-right: 15px;
+            min-width: 30px;
+            text-align: center;
+            color: var(--color-primary);
+        }
+
+        /* -------------------------------------- */
+        /* Footer */
+        /* -------------------------------------- */
+        footer {
+            text-align: center;
+            padding: 25px 20px;
+            background-color: var(--color-light-gray);
+            color: var(--color-text-light);
+            font-size: 0.9em;
+        }
+
+        /* -------------------------------------- */
+        /* Responsive Design */
+        /* -------------------------------------- */
+        @media (max-width: 900px) {
+            #contact .contact-wrapper {
+                flex-direction: column;
+            }
+            #contact .contact-intro {
+                padding: 30px;
+                text-align: center;
+            }
+            #contact .contact-details {
+                padding: 30px;
+            }
+            .contact-link-item {
+                justify-content: center;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #hero h1 {
+                font-size: 2.5em;
+            }
+            #hero h2 {
+                font-size: 1.2em;
+            }
+            .nav-links {
+                display: none; 
+            }
+            nav .container {
+                justify-content: center;
+            }
+            section {
+                padding: 50px 0;
+            }
+            .grid-layout {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="container">
+            <a href="#hero" class="logo">BHUMIKA.R.K</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education & Certs</a> 
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section (Landing Page) -->
+    <section id="hero">
+        <div class="profile-img-container">
+            <div class="profile-img-placeholder">
+                <!-- 
+                    ********************************************************************************
+                    ACTION REQUIRED: To add your profile picture from your files, replace the entire 
+                    'src' attribute in the line below with the relative path to your image file.
+                    
+                    Example if your file is named 'bhumika_profile.jpg' and is next to index.html:
+                    src="./bhumika_profile.jpg"
+                    
+                    Example if your file is inside an 'assets' folder:
+                    src="./assets/bhumika_profile.jpg"
+                    ********************************************************************************
+                -->
+                <img src="pic.jpg" 
+                     onerror="this.style.display='none'; this.parentNode.innerHTML+='<i class=\'fas fa-user-circle\'></i>';" 
+                     alt="Bhumika R K Professional Photo">
+            </div>
+        </div>
+        <h1>BHUMIKA R K</h1>
+        <h2>Aspiring Developer | Python & Django Enthusiast</h2>
+        <p>Motivated fresher eager to build robust applications. Specializing in Python back-end development and dedicated to creating clean, functional web experiences.</p>
+        <a href="#projects" class="cta-button primary">Explore My Work</a>
+        <!-- 
+            ********************************************************************************
+            RESUME LINK: Replace the '#' below with the public URL to your resume 
+            (e.g., a Google Drive link set to public view, or a link to a PDF on a hosting site).
+            ********************************************************************************
+        -->
+        <a href="https://drive.google.com/file/d/19QDqbMyhzJKFXBBKn9ReSj67BO2sEjmh/view?usp=sharing" target="_blank" class="cta-button secondary">Download Resume</a>
+    </section>
+
+    <!-- 2. About Me Section (CONCISED) -->
+    <section id="about" class="container">
+        <h2>About Me</h2>
+        <div class="about-content" style="max-width: 700px;">
+            <p>I am a motivated fresher passionate about full-stack development. My foundation is built on **HTML, CSS, and basic JavaScript** for creating clean, accessible user interfaces.</p>
+            
+            <p>My primary growth area is **Python backend development**, where I am actively learning the **Django framework** to handle application logic and database interactions. I focus on developing robust features, ensuring clean code architecture, and leveraging my solid understanding of **SQL and DBMS** for effective data management.</p>
+
+            <p>I am a dedicated learner, eager to translate concepts into practical, working applications.</p>
+        </div>
+    </section>
+
+    <!-- 3. Skills Section (Updated with different color borders) -->
+    <section id="skills" class="container">
+        <h2>Core Technical Skills</h2>
+        <div class="grid-layout">
+            <!-- Green Border (Secondary Color) -->
+            <div class="card skill-card-lang">
+                <h3>Programming Languages</h3>
+                <ul class="skill-list">
+                    <li>Python</li>
+                    <li>SQL</li>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>JavaScript (Basic)</li>
+                </ul>
+            </div>
+            <!-- Peach Border (Tertiary Color) -->
+            <div class="card skill-card-frameworks">
+                <h3>Frameworks & Tools</h3>
+                <ul class="skill-list">
+                    <li>Django</li>
+                    <li>MySQL / DBMS</li>
+                    <li>Git & GitHub</li>
+                    <li>VS Code</li>
+                </ul>
+            </div>
+            <!-- Lavender Border (Quaternary Color) -->
+            <div class="card skill-card-soft">
+                <h3>Certifications & Soft Skills</h3>
+                <ul class="skill-list">
+                    <li>NPTEL Python Certification</li>
+                    <li>Problem Solving</li>
+                    <li>Quick Learner</li>
+                    <li>Team Collaboration</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 4. Projects Section (Updated with E-commerce) -->
+    <section id="projects" class="container">
+        <h2>My Selected Projects</h2>
+        <div class="grid-layout">
+            <div class="card project-card">
+                <h3>Mini E-commerce Full Stack Application</h3>
+                <p>A self-guided project developed to gain hands-on experience in full-stack architecture. This system demonstrates end-to-end functionality, from user authentication and catalog browsing to basic order processing, providing a practical understanding of how frontend and backend components communicate.</p>
+                <p class="tech-stack"><strong>Tools:</strong> Python (for logic/backend fundamentals), HTML, CSS, JavaScript, DBMS</p>
+                <a href="[YOUR_GITHUB_PROFILE]/mini-ecommerce-project" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub Link</a>
+            </div>
+            
+            <div class="card project-card">
+                <h3>Malicious URL and Content Blocking System</h3>
+                <p>Implemented a machine learning-based system for proactive malicious URL detection, leveraging feature engineering and supervised classification to enhance cybersecurity measures.</p>
+                <p class="tech-stack"><strong>Tools:</strong> Python, Machine Learning, Web Technologies</p>
+                <a href="[YOUR_GITHUB_PROFILE]/malicious-url-project" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub Link</a>
+            </div>
+
+            <div class="card project-card">
+                <h3>Pharmacy Management System</h3>
+                <p>Designed a comprehensive software system to streamline pharmacy operations, focusing on inventory, prescription tracking, and sales processing, demonstrating strong DBMS and SQL application.</p>
+                <p class="tech-stack"><strong>Tools:</strong> Python, MySQL/DBMS, HTML/CSS/JS</p>
+                <a href="[YOUR_GITHUB_PROFILE]/pharmacy-management" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub Link</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Education & Certifications Section -->
+    <section id="education" class="container">
+        <h2>Education & Certifications</h2>
+        <div class="grid-layout">
+             <div class="card education-card-academic">
+                <h3>Academic Background</h3>
+                <p><strong>B.Tech in Computer Science & Engineering</strong></p>
+                <p>Bangalore Technological Institute, Bengaluru</p>
+                <p class="tech-stack">Expected Completion: 2026</p>
+            </div>
+            <div class="card certification-card">
+                <h3>Technical Certifications</h3>
+                <ul class="skill-list" style="justify-content: center;">
+                    <li>Programming In Python | NPTEL</li>
+                    <li>Basic JS, PHP, PYTHON | Udemy</li>
+                    <li>AI/DL/NLP | Infosys Springboard</li>
+                    <li>Introduction to Modern AI | Cisco</li>
+                    <li>Power BI and CHATGPT | Simplilearn</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Contact Section -->
+    <section id="contact" class="container">
+        <h2>Let's Connect</h2>
+        <div class="contact-wrapper">
+            <div class="contact-intro">
+                <h3>Ready to collaborate?</h3>
+                <p>I'm always open to discussing new projects, entry-level opportunities, or ways to contribute my growing backend and frontend skills.</p>
+                <a href="mailto:bhumikakodadur@gmail.com" class="cta-button secondary" style="background-color: var(--color-white); color: var(--color-primary); border: none; align-self: flex-start;">Send Me an Email</a>
+            </div>
+            <div class="contact-details">
+                <a href="mailto:bhumikakodadur@gmail.com" class="contact-link-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>bhumikakodadur@gmail.com</span>
+                </a>
+                <a href="https://www.linkedin.com/in/bhumika-r-kodadur-a54827332" target="_blank" class="contact-link-item">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn Profile</span>
+                </a>
+                <a href="https://github.com/RKBhumika" target="_blank" class="contact-link-item">
+                    <i class="fab fa-github"></i>
+                    <span>RKBhumika (View Code)</span>
+                </a>
+                 <div class="contact-link-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Bengaluru, India</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 7. Footer Section -->
+    <footer>
+        © 2024 BHUMIKA R K. Crafted with attention to detail.
+    </footer>
+
+    <!-- INLINE JAVASCRIPT (Previously script.js) -->
+    <script>
+        // JavaScript for Smooth Scrolling
+        document.addEventListener('DOMContentLoaded', () => {
+            // Select all anchor tags whose href starts with '#'
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    // Prevent default anchor click behavior
+                    e.preventDefault();
+
+                    // Get the target element ID from the href attribute
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        // Scroll to the target element smoothly
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            console.log("Portfolio JavaScript loaded. Smooth scroll active.");
+        });
+    </script>
+</body>
+</html>
